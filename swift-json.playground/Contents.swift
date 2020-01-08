@@ -3,17 +3,10 @@ import UIKit
 PlaygroundPage.current.needsIndefiniteExecution = true
 
 struct Todo: Codable {
-    let userNumber : Int
-    let todoId : Int
-    let todoTitle : String
-    let isCompleted : Bool
-
-  enum CodingKeys: String, CodingKey {
-      case userNumber = "userId"
-      case todoId = "id"
-      case todoTitle = "title"
-      case isCompleted = "completed"
-  }
+    let userId : Int
+    let id : Int
+    let title : String
+    let completed : Bool
 }
 
 func getTodo() {
@@ -25,10 +18,10 @@ func getTodo() {
 
         do {
             let todo = try JSONDecoder().decode(Todo.self, from: data)
-            print(todo.userNumber)
-            print(todo.todoId)
-            print(todo.todoTitle)
-            print(todo.isCompleted)
+            print(todo.userId)
+            print(todo.id)
+            print(todo.title)
+            print(todo.completed)
         } catch {
             print("error!")
         }
